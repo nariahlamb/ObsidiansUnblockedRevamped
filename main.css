@@ -158,16 +158,22 @@ border-radius: 20px;
   
   .search-bar {
 	margin-right: auto;  
+  padding-bottom: 25px;
   }
   
-  .search-bar input{
-	background-color: black;
-	border-style: inset;
-	border-color: white;
-	border-radius: 20px;
-	width: auto;
-    margin-left: 100%;
-  }
+  .search-bar input {
+    background-color: black;
+    border-style: inset;
+    border-color: white;
+    border-radius: 20px;
+    width: auto;
+    position: absolute; /* Allows normal scrolling */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
   
   .menu-bar-buttons {
     display: flex;
