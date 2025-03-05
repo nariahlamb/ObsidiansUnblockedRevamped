@@ -376,7 +376,7 @@ canvas {
 }
 
 #floatingMessage {
-  position: fixed;
+  position: absolute;
   top: 300px;
   left: 60%;
   transform: translate(-50%, -50%);

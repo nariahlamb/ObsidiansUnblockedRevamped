@@ -39,8 +39,12 @@ function ToggleOpenGamesInNewTab() {
 // Update button text based on setting
 function updateOpenGamesInNewTabToggleButton() {
   const button = document.getElementById("openGamesInNewTabToggleButton");
-  button.innerText = openGamesInNewTab ? "Open games & changes in new tab: Enabled" : "Open games & changes in new tab: Disabled";
-  button.className = openGamesInNewTab ? "settingsButton settingsButtonEnabled" : "settingsButton settingsButtonDisabled";
+  button.innerText = openGamesInNewTab
+    ? "Open games & changes in new tab: Enabled"
+    : "Open games & changes in new tab: Disabled";
+  button.className = openGamesInNewTab
+    ? "settingsButton settingsButtonEnabled"
+    : "settingsButton settingsButtonDisabled";
 }
 
 function ToggleTabCloakGames() {
@@ -51,10 +55,13 @@ function ToggleTabCloakGames() {
 
 function updateTabCloakGamesToggleButton() {
   const button = document.getElementById("tabCloakGamesToggleButton");
-  button.innerText = tabCloakGames ? "Tab cloak games & changes: Enabled" : "Tab cloak games & changes: Disabled";
-  button.className = tabCloakGames ? "settingsButton settingsButtonEnabled" : "settingsButton settingsButtonDisabled";
+  button.innerText = tabCloakGames
+    ? "Tab cloak games & changes: Enabled"
+    : "Tab cloak games & changes: Disabled";
+  button.className = tabCloakGames
+    ? "settingsButton settingsButtonEnabled"
+    : "settingsButton settingsButtonDisabled";
 }
-
 
 function ToggleFps() {
   if (!showFPS) {
@@ -69,27 +76,31 @@ function ToggleFps() {
 }
 
 let lastFrameTime = performance.now();
-let frameCount = 0; 
-let fpsInterval = 0; 
-function updateFps() { 
-  const now = performance.now(); 
-  frameCount++; 
-  const delta = now - lastFrameTime; 
-  if (delta >= 100) { 
-    // Update every second 
-    const fps = (frameCount / delta) * 1000; 
-    document.getElementById("fps").innerText = "FPS: " + Math.round(fps); 
-    frameCount = 0; 
+let frameCount = 0;
+let fpsInterval = 0;
+function updateFps() {
+  const now = performance.now();
+  frameCount++;
+  const delta = now - lastFrameTime;
+  if (delta >= 100) {
+    // Update every second
+    const fps = (frameCount / delta) * 1000;
+    document.getElementById("fps").innerText = "FPS: " + Math.round(fps);
+    frameCount = 0;
     lastFrameTime = now;
-   } 
-   requestAnimationFrame(updateFps);
   }
-   window.addEventListener("load", () => { requestAnimationFrame(updateFps); });
+  requestAnimationFrame(updateFps);
+}
+window.addEventListener("load", () => {
+  requestAnimationFrame(updateFps);
+});
 
 function updateShowFPSToggleButton() {
   const button = document.getElementById("showFPSToggleButton");
   button.innerText = showFPS ? "FPS Counter: Enabled" : "FPS Counter: Disabled";
-  button.className = showFPS ? "settingsButton settingsButtonEnabled" : "settingsButton settingsButtonDisabled";
+  button.className = showFPS
+    ? "settingsButton settingsButtonEnabled"
+    : "settingsButton settingsButtonDisabled";
 }
 
 // Load settings when the page is loaded
@@ -304,9 +315,45 @@ function initiateAudioCheck() {
   }, 1000);
 }
 
+// run a script on dom content loaded here so I can check if the newest version of the website is equal to the last visited version.
+var shouldShowChangelog = true;
+var latestVersion;
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch(
+    "https://api.allorigins.win/raw?url=" +
+      encodeURIComponent("https://pastebin.com/raw/HvUqPkjN")
+  )
+    .then((response) => response.text())
+    .then((data) => {
+      latestVersion = data;
+      console.log(`Fetched latest version: ${latestVersion}`);
+
+      var lastVersionCookie = getCookie("lastVisitedVersion");
+      console.log(
+        `Latest Version: ${latestVersion}, Last Visited Version: ${lastVersionCookie}`
+      );
+
+      shouldShowChangelog = lastVersionCookie !== latestVersion;
+
+      updateChangelogDisplay();
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+});
+
+function updateChangelogDisplay() {
+  const popup = document.getElementById("center-container");
+  if (popup) {
+    popup.style.display = shouldShowChangelog ? "grid" : "none";
+  }
+}
+
 function hideChangelog() {
   const popup = document.getElementById("center-container");
   if (popup) {
+    var cookie = getCookie("lastVisitedVersion");
+    setCookie("lastVisitedVersion", latestVersion, 999);
+    console.log("Set last visited version cookie (.',)");
     popup.style.display = "none"; // Hide the popup
   }
 }
@@ -321,7 +368,7 @@ function ToggleGames() {
   if (showGames) {
     //show games
     const message = document.getElementById("floatingMessage");
-    message.innerText = "";
+    ////message.innerText = "";
     document.getElementById("MenuBarContainer").style.display = "flex";
     document.getElementById("regular-footer").style.display = "none";
     document.getElementById("ButtonsContainer").style.display = "none";
@@ -353,7 +400,7 @@ function ToggleChanges() {
   if (showChanges) {
     //show changes
     const message = document.getElementById("floatingMessage");
-    message.innerText = "";
+    //message.innerText = "";
     document.getElementById("MenuBarContainer").style.display = "flex";
     document.getElementById("regular-footer").style.display = "none";
     document.getElementById("ButtonsContainer").style.display = "none";
@@ -379,9 +426,6 @@ function ToggleChanges() {
 }
 
 function GoHome() {
-  const message = document.getElementById("floatingMessage");
-  const randomMessage = possibleMessages[Math.floor(Math.random() * possibleMessages.length)];
-  message.innerText = randomMessage;
   document.getElementById("MenuBarContainer").style.display = "none";
   document.getElementById("regular-footer").style.display = "flex";
   document.getElementById("ButtonsContainer").style.display = "flex";
@@ -2221,7 +2265,6 @@ const gamesData = [
   },
 ];
 
-
 let rows = 0;
 let collumns = 0;
 function renderGames(games) {
@@ -2261,16 +2304,20 @@ function renderGames(games) {
 
 const changesData = [
   {
+    version: "2.1.9",
+    url: "changes/2.1.9.html",
+  },
+  {
     version: "2.1.8",
-    url: "changes/2.1.8.html"
+    url: "changes/2.1.8.html",
   },
   {
     version: "2.1.7",
-    url: "changes/2.1.7.html"
+    url: "changes/2.1.7.html",
   },
   {
     version: "2.1.6",
-    url: "changes/2.1.6.html"
+    url: "changes/2.1.6.html",
   },
   {
     version: "2.1.5",
@@ -2418,17 +2465,17 @@ while (relationship === "recursive") {
     console.log("This is going nowhere!");
     break;
 }`,
-`$balance = null;
+  `$balance = null;
 if (is_null($balance)) {
     echo "Balance is null, can't buy anything!";
 }
 `,
-"Who programmed this thing, anyway?",
-"You can't unsee this. Enjoy!",
-"We meet again… or is this the first time?",
-"This website might know more about you than you think.",
-"Click if you dare.",
-"Are you sure you're ready for what's next?",
+  "Who programmed this thing, anyway?",
+  "You can't unsee this. Enjoy!",
+  "We meet again… or is this the first time?",
+  "This website might know more about you than you think.",
+  "Click if you dare.",
+  "Are you sure you're ready for what's next?",
   "I wonder what you’ll find here.",
   "This is only the beginning, isn’t it?",
   "Curiosity can lead to unexpected places.",
@@ -2574,7 +2621,7 @@ if (is_null($balance)) {
   "(◕‿◕✿)",
   "(･ω･)",
   "(╬ ಠ益ಠ)",
-  "(¬_¬\")",
+  '(¬_¬")',
   "(-_•)",
   "(⌐■_■)",
   "(ಥ﹏ಥ)",
@@ -2766,12 +2813,10 @@ if (is_null($balance)) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("floatingMessage");
-  const randomMessage = possibleMessages[Math.floor(Math.random() * possibleMessages.length)];
+  const randomMessage =
+    possibleMessages[Math.floor(Math.random() * possibleMessages.length)];
   message.innerText = randomMessage;
 });
-
-
-
 
 // Particle system and other logic
 const scene = new THREE.Scene();
@@ -2835,13 +2880,23 @@ scene.add(particleSystem);
 
 camera.position.z = 5;
 
-function animate() {
+let lastTime = performance.now();
+
+function animate(currentTime) {
   requestAnimationFrame(animate);
-  particleSystem.rotation.x += 0.001;
-  particleSystem.rotation.y += 0.001;
+
+  let deltaTime = (currentTime - lastTime) / 1000; // convert to seconds
+  lastTime = currentTime;
+
+  let rotationSpeed = 0.15; // radians
+
+  particleSystem.rotation.x += rotationSpeed * deltaTime;
+  particleSystem.rotation.y += rotationSpeed * deltaTime;
+
   renderer.render(scene, camera);
 }
-animate();
+
+animate(lastTime);
 
 let isColored = false;
 function toggleParticleColors() {
