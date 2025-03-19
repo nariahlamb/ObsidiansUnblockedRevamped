@@ -103,11 +103,37 @@ function updateShowFPSToggleButton() {
     : "settingsButton settingsButtonDisabled";
 }
 
+// Update button text based on setting
+function updatePreventClosingToggleButton() {
+  const button = document.getElementById("preventClosingToggleButton");
+  button.innerText = shouldPreventClosing
+    ? "Prevent Site From Closing: Enabled"
+    : "Prevent Site From Closing: Disabled";
+  button.className = shouldPreventClosing
+    ? "settingsButton settingsButtonEnabled"
+    : "settingsButton settingsButtonDisabled";
+}
+
+let shouldPreventClosing = false;
+function TogglePreventPageClosing() {
+  shouldPreventClosing = !shouldPreventClosing;
+  setCookie("preventClosing", shouldPreventClosing, 999);
+  updatePreventClosingToggleButton();
+}
+
+//prevent window from being closed by goguardian and stuff
+window.addEventListener("beforeunload", function (e) {
+  if (shouldPreventClosing) {
+    e.preventDefault();
+  }
+});
+
 // Load settings when the page is loaded
 window.onload = function () {
   const savedSetting1 = getCookie("openGamesInNewTab");
   const savedSetting2 = getCookie("tabCloakGames");
   const savedSetting3 = getCookie("showFPSEnabled");
+  const savedSetting4 = getCookie("preventClosing");
   if (savedSetting1 !== null) {
     openGamesInNewTab = savedSetting1 === "true"; // Convert string to boolean
   }
@@ -117,9 +143,14 @@ window.onload = function () {
   if (savedSetting3 !== null) {
     showFPS = savedSetting3 === "true"; // Convert String to boolean
   }
+  if (savedSetting4 !== null) {
+    shouldPreventClosing = savedSetting4 === "true";
+    console.log(shouldPreventClosing);
+  }
   updateOpenGamesInNewTabToggleButton(); // Update button based on saved setting
   updateTabCloakGamesToggleButton();
   updateShowFPSToggleButton();
+  updatePreventClosingToggleButton();
 };
 
 function OpenInBlank(url) {
@@ -240,9 +271,9 @@ function ExitGame() {
   document.getElementById("GamesContainer").style.display = "flex";
   document.getElementById("ChangesContainer").style.display = "none";
   document.getElementById("game-display-container").style.display = "none";
+  document.getElementById("audioSource").volume = 1;
   document.getElementById("game-display-iframe").src = "";
   document.getElementById("changes-display-iframe").src = "";
-  document.getElementById("audioSource").volume = 1;
 }
 
 function FullscreenGame() {
@@ -295,6 +326,7 @@ function FullscreenChange() {
 let audioPlayed = false; // Flag to check if the audio has already played
 
 function initiateAudioCheck() {
+  console.log("audio check function :)");
   const audioElement = document.getElementById("audioSource");
   const checkInterval = setInterval(function () {
     if (!audioPlayed) {
@@ -316,10 +348,11 @@ function initiateAudioCheck() {
 }
 
 // run a script on dom content loaded here so I can check if the newest version of the website is equal to the last visited version.
-var shouldShowChangelog = true;
-var latestVersion;
+let shouldShowChangelog = true;
+let latestVersion;
 
 document.addEventListener("DOMContentLoaded", function () {
+  initiateAudioCheck();
   fetch(
     "https://api.allorigins.win/raw?url=" +
       encodeURIComponent("https://pastebin.com/raw/HvUqPkjN")
@@ -329,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
       latestVersion = data;
       console.log(`Fetched latest version: ${latestVersion}`);
 
-      var lastVersionCookie = getCookie("lastVisitedVersion");
+      let lastVersionCookie = getCookie("lastVisitedVersion");
       console.log(
         `Latest Version: ${latestVersion}, Last Visited Version: ${lastVersionCookie}`
       );
@@ -351,7 +384,7 @@ function updateChangelogDisplay() {
 function hideChangelog() {
   const popup = document.getElementById("center-container");
   if (popup) {
-    var cookie = getCookie("lastVisitedVersion");
+    let cookie = getCookie("lastVisitedVersion");
     setCookie("lastVisitedVersion", latestVersion, 999);
     console.log("Set last visited version cookie (.',)");
     popup.style.display = "none"; // Hide the popup

@@ -22,8 +22,8 @@
       rel="stylesheet"
     />
   </head>
-  <body class="homepage" onload="initiateAudioCheck(); sendMessage()">
-    <audio id="audioSource" loop preload="auto">
+  <body class="homepage">
+    <audio id="audioSource" loop="true" preload="auto">
       <source src="assets/wutiwant.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
@@ -37,7 +37,9 @@
       />
     </div>
 
-    <div id="floatingMessage">Welcome to my website!</div>
+    <div id="musicPlayer"></div>
+
+    <div id="floatingMessage"></div>
 
     <div id="ButtonsContainer">
       <div class="homepage-buttons" id="Games">
@@ -333,6 +335,13 @@
           type="button"
           id="showFPSToggleButton"
           onClick="ToggleFps()"
+          class="settingsButton"
+        >
+        <br /><br />
+        <button
+          type="button"
+          id="preventClosingToggleButton"
+          onClick="TogglePreventPageClosing()"
           class="settingsButton"
         >
           <!-- Button text will be set dynamically -->
