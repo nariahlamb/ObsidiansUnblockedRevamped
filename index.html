@@ -1,210 +1,146 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link
-      rel="icon"
-      href="assets/obsidians-unblocked-favicon-white.png"
-      type="image/x-icon"
-    />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Home | Obsidians Unblocked</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Alfa Slab One"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="homepage">
+
+<head>
+  <link rel="icon" href="assets/obsidians-unblocked-favicon-white.png" type="image/x-icon" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Home | Obsidians Unblocked</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Alfa Slab One" rel="stylesheet" />
+</head>
+
+<body class="homepage">
+  <!--
     <audio id="audioSource" loop="true" preload="auto">
       <source src="assets/wutiwant.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
-    </audio>
+    </audio>-->
 
-    <div id="fps">FPS: </div>
+  <div id="fps">FPS: </div>
 
-    <div class="ObsidiansUnblockedHeader" id="Logo" style="text-align: center">
-      <img
-        src="assets/obsidians-unblocked-high-resolution-logo-transparent.png"
-        style="scale: 35%"
-      />
+  <div class="ObsidiansUnblockedHeader" id="Logo" style="text-align: center">
+    <img src="assets/obsidians-unblocked-high-resolution-logo-transparent.png" style="scale: 35%" />
+  </div>
+
+  <div id="musicPlayer"></div>
+
+  <div id="floatingMessage"></div>
+
+  <div id="ButtonsContainer">
+    <div class="homepage-buttons" id="Games">
+      <a onClick="ToggleGames()" class="buttons-a"><strong>Games</strong></a>
     </div>
-
-    <div id="musicPlayer"></div>
-
-    <div id="floatingMessage"></div>
-
-    <div id="ButtonsContainer">
-      <div class="homepage-buttons" id="Games">
-        <a onClick="ToggleGames()" class="buttons-a"><strong>Games</strong></a>
-      </div>
-      <div class="homepage-buttons" id="Changes">
-        <a onClick="ToggleChanges()" class="buttons-a"
-          ><strong>Changes</strong></a
-        >
-      </div>
-      <div class="homepage-buttons" id="Settings">
-        <a onClick="ToggleSettings()" class="buttons-a"
-          ><strong>Settings</strong></a
-        >
-      </div>
+    <div class="homepage-buttons" id="Changes">
+      <a onClick="ToggleChanges()" class="buttons-a"><strong>Changes</strong></a>
     </div>
-
-    <div class="footer-main" id="regular-footer">
-      <a href="https://discord.gg/8D8mVEE2v4"
-        ><img
-          src="assets/discord-favicon-white-outline.png"
-          alt="discord logo"
-          width="35"
-      /></a>
-      <a href="https://www.tiktok.com/@villocity.mtg"
-        ><img
-          src="assets/tiktok-favicon-white-outline.png"
-          alt="tiktok logo"
-          width="30"
-      /></a>
-      <a href="mailto:segamega311@gmail.com"
-        ><img
-          src="assets/gmail-favicon-white-outline.png"
-          alt="gmail logo"
-          width="30"
-      /></a>
-      <a onclick="toggleParticleColors()"
-        ><img
-          src="assets/particle.png"
-          alt="particle icon"
-          width="30"
-          id="particleColorToggleButton"
-      /></a>
+    <div class="homepage-buttons" id="Settings">
+      <a onClick="ToggleSettings()" class="buttons-a"><strong>Settings</strong></a>
     </div>
+  </div>
 
-    <!-- Centering container for the popup -->
-    <div class="center-container" id="center-container">
-      <div class="changelog-popup" id="changelog-popup">
-        <strong>
-          Version 2.1.9 Changelog 3/4/25
-          <button
-            type="button"
-            onClick="hideChangelog()"
-            style="
+  <div class="footer-main" id="regular-footer">
+    <a href="https://discord.gg/8D8mVEE2v4"><img src="assets/discord-favicon-white-outline.png" alt="discord logo"
+        width="35" /></a>
+    <a href="https://www.tiktok.com/@villocity.mtg"><img src="assets/tiktok-favicon-white-outline.png" alt="tiktok logo"
+        width="30" /></a>
+    <a href="mailto:segamega311@gmail.com"><img src="assets/gmail-favicon-white-outline.png" alt="gmail logo"
+        width="30" /></a>
+    <a onclick="toggleParticleColors()"><img src="assets/particle.png" alt="particle icon" width="30"
+        id="particleColorToggleButton" /></a>
+  </div>
+
+  <!-- Centering container for the popup -->
+  <div class="center-container" id="center-container">
+    <div class="changelog-popup" id="changelog-popup">
+      <strong>
+        Version 2.2.0 Changelog 4/21/25
+        <button type="button" onClick="hideChangelog()" style="
               margin-left: 30%;
               background-color: #0e0e0e;
               border-style: none;
-            "
-          >
-            <img src="assets/x-icon.png" width="30" />
-          </button>
-        </strong>
-        <p>
-          -------------------------------------------------------------------------------------
-        </p>
-        <strong>Added:</strong>
-      <p>-Check for last seen version and latest available version</p>
+            ">
+          <img src="assets/x-icon.png" width="30" />
+        </button>
+      </strong>
       <p>
-        -Auto hide changelog popup on refresh if the last seen version is == to
-        the latest version
+        -------------------------------------------------------------------------------------
       </p>
+      <strong>Added:</strong>
+      <p>-Pokemon Crystal Clear</p>
+      <p>-Sonic The Hedgehog</p>
+      <p>-Sonic The Hedgehog 2</p>
+      <p>-Sonic The Hedgehog 3</p>
+      <p>-Dreader</p>
+      <p>-Evolution</p>
+      <p>-Little Chef</p>
+      <p>-Deepest Sword</p>
+      <p>-Plant Daddy</p>
+      <p>-Fear Assessment</p>
+      <p>-Red Handed</p>
+      <p>-Sketchy Individuals [will be fixed soon]</p>
+      <p>-Wildfire</p>
+      <p>-Unlikely</p>
+      <p>-Bases Loaded</p>
+      <p>-Paper Minecraft 1.21</p>
+      <p>-Portaboy+</p>
+      <p>-Picture Perfect</p>
+      <p>-Melissa</p>
       <strong>Removed:</strong>
       <p>-Nothing</p>
       <strong>Fixed:</strong>
-      <p>
-        -Background using fps instead of delta time (Now moves same speed for
-        all screens)
-      </p>
-      <p>
-        -Games/Changes search bar not being in middle of screen depending on
-        screen size
-      </p>
-      <p>-Floating message stays on all parts of site</p>
-      </div>
+      <p>-Nothing</p>
     </div>
+  </div>
 
-    <div class="menu-bar-container" id="MenuBarContainer">
-      <div class="menu-bar">
-        <div class="menu-bar-buttons">
-          <div class="menu-bar-button" id="Games">
-            <a onClick="GoHome()" class="buttons-a" id="menu-bar-home-button-a"
-              ><strong>Home</strong></a
-            >
-          </div>
-          <div class="menu-bar-button" id="Changes">
-            <a
-              onClick="ToggleChanges()"
-              class="buttons-a"
-              id="menu-bar-changes-button-a"
-              ><strong id="menu-bar-changes-button-text">Changes</strong></a
-            >
-          </div>
-          <div class="menu-bar-button" id="Settings">
-            <a
-              onClick="ToggleSettings()"
-              class="buttons-a"
-              id="menu-bar-settings-button-a"
-              ><strong>Settings</strong></a
-            >
-          </div>
+  <div class="menu-bar-container" id="MenuBarContainer">
+    <div class="menu-bar">
+      <div class="menu-bar-buttons">
+        <div class="menu-bar-button" id="Games">
+          <a onClick="GoHome()" class="buttons-a" id="menu-bar-home-button-a"><strong>Home</strong></a>
         </div>
-        <!-- Search bar for filtering games -->
-        <div class="search-bar">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search Games"
-            onkeyup="searchGames()"
-            style="text-align: center"
-          />
+        <div class="menu-bar-button" id="Changes">
+          <a onClick="ToggleChanges()" class="buttons-a" id="menu-bar-changes-button-a"><strong
+              id="menu-bar-changes-button-text">Changes</strong></a>
         </div>
-        <div class="menu-bar-icons">
-          <a href="https://discord.gg/8D8mVEE2v4">
-            <img
-              src="assets/discord-favicon-white-outline.png"
-              alt="Discord logo"
-              width="35"
-            />
-          </a>
-          <a href="https://www.tiktok.com/@villocity.mtg">
-            <img
-              src="assets/tiktok-favicon-white-outline.png"
-              alt="Tiktok logo"
-              width="30"
-            />
-          </a>
-          <a href="mailto:segamega311@gmail.com">
-            <img
-              src="assets/gmail-favicon-white-outline.png"
-              alt="Gmail logo"
-              width="30"
-            />
-          </a>
-          <a onclick="toggleParticleColors()">
-            <img
-              src="assets/particle.png"
-              alt="Particle icon"
-              width="30"
-              id="particleColorToggleButton2"
-            />
-          </a>
+        <div class="menu-bar-button" id="Settings">
+          <a onClick="ToggleSettings()" class="buttons-a" id="menu-bar-settings-button-a"><strong>Settings</strong></a>
         </div>
       </div>
+      <!-- Search bar for filtering games -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Games" onkeyup="searchGames()"
+          style="text-align: center" />
+      </div>
+      <div class="menu-bar-icons">
+        <a href="https://discord.gg/8D8mVEE2v4">
+          <img src="assets/discord-favicon-white-outline.png" alt="Discord logo" width="35" />
+        </a>
+        <a href="https://www.tiktok.com/@villocity.mtg">
+          <img src="assets/tiktok-favicon-white-outline.png" alt="Tiktok logo" width="30" />
+        </a>
+        <a href="mailto:segamega311@gmail.com">
+          <img src="assets/gmail-favicon-white-outline.png" alt="Gmail logo" width="30" />
+        </a>
+        <a onclick="toggleParticleColors()">
+          <img src="assets/particle.png" alt="Particle icon" width="30" id="particleColorToggleButton2" />
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- Games Divs/Containers -->
-    <div class="GamesContainer" id="GamesContainer">
-      <!-- Dynamically loaded games will appear here -->
-    </div>
+  <!-- Games Divs/Containers -->
+  <div class="GamesContainer" id="GamesContainer">
+    <!-- Dynamically loaded games will appear here -->
+  </div>
 
-    <!-- GAME DISPLAY -->
-    <div
-      class="game-display-container"
-      id="game-display-container"
-      style="
+  <!-- GAME DISPLAY -->
+  <div class="game-display-container" id="game-display-container" style="
         flex-direction: column;
         background-color: black;
         width: 800px;
@@ -217,44 +153,29 @@
         align-items: center;
         margin: 0 auto;
         padding: 15px;
-      "
-    >
-      <div class="game-display" id="game-display" style="display: flex">
-        <iframe
-          width="700px"
-          height="500px"
-          style="border-radius: 20px; border: none"
-          src=""
-          id="game-display-iframe"
-        ></iframe>
-      </div>
-      <div
-        style="
+      ">
+    <div class="game-display" id="game-display" style="display: flex">
+      <iframe width="700px" height="500px" style="border-radius: 20px; border: none" src=""
+        id="game-display-iframe"></iframe>
+    </div>
+    <div style="
           display: flex;
           justify-content: center;
           align-items: center;
           margin: 0 auto;
-        "
-      >
-        <a onclick="ExitGame()" style="padding-right: 1200%"
-          ><img src="assets/back-arrow.png" width="30"
-        /></a>
-        <a onclick="FullscreenGame()" style="padding-left: 95%"
-          ><img src="assets/fullscreen.png" width="25"
-        /></a>
-      </div>
+        ">
+      <a onclick="ExitGame()" style="padding-right: 1200%"><img src="assets/back-arrow.png" width="30" /></a>
+      <a onclick="FullscreenGame()" style="padding-left: 95%"><img src="assets/fullscreen.png" width="25" /></a>
     </div>
+  </div>
 
-    <!-- Changes Divs/Containers -->
-    <div class="ChangesContainer" id="ChangesContainer">
-      <!-- Dynamically loaded games will appear here -->
-    </div>
+  <!-- Changes Divs/Containers -->
+  <div class="ChangesContainer" id="ChangesContainer">
+    <!-- Dynamically loaded games will appear here -->
+  </div>
 
-    <!-- CHANGES DISPLAY -->
-    <div
-      class="change-display-container"
-      id="change-display-container"
-      style="
+  <!-- CHANGES DISPLAY -->
+  <div class="change-display-container" id="change-display-container" style="
         flex-direction: column;
         background-color: black;
         width: 800px;
@@ -267,90 +188,54 @@
         align-items: center;
         margin: 0 auto;
         padding: 15px;
-      "
-    >
-      <div class="change-display" id="change-display" style="display: flex">
-        <iframe
-          width="700px"
-          height="500px"
-          style="border-radius: 20px; border: none"
-          src=""
-          id="change-display-iframe"
-        ></iframe>
-      </div>
-      <div
-        style="
+      ">
+    <div class="change-display" id="change-display" style="display: flex">
+      <iframe width="700px" height="500px" style="border-radius: 20px; border: none" src=""
+        id="change-display-iframe"></iframe>
+    </div>
+    <div style="
           display: flex;
           justify-content: center;
           align-items: center;
           margin: 0 auto;
-        "
-      >
-        <a onclick="ExitChange()" style="padding-right: 1200%"
-          ><img src="assets/back-arrow.png" width="30"
-        /></a>
-        <a onclick="FullscreenChange()" style="padding-left: 95%"
-          ><img src="assets/fullscreen.png" width="25"
-        /></a>
-      </div>
+        ">
+      <a onclick="ExitChange()" style="padding-right: 1200%"><img src="assets/back-arrow.png" width="30" /></a>
+      <a onclick="FullscreenChange()" style="padding-left: 95%"><img src="assets/fullscreen.png" width="25" /></a>
     </div>
+  </div>
 
-    <!-- Website Settings Page -->
-    <div class="SettingsContainer" id="SettingsContainer">
-      <div class="settings-popup" id="settings-popup">
-        <button
-          type="button"
-          onClick="ToggleSettings()"
-          style="background-color: #0e0e0e; border-style: none"
-        >
-          <img src="assets/x-icon.png" width="30" />
-        </button>
-        <br /><br />
-        <div id="SettingsButtonsContainer" class="SettingsButtonsContainer">
-        <button
-          type="button"
-          onClick="OpenInBlank(null)"
-          class="settingsButton"
-        >
+  <!-- Website Settings Page -->
+  <div class="SettingsContainer" id="SettingsContainer">
+    <div class="settings-popup" id="settings-popup">
+      <button type="button" onClick="ToggleSettings()" style="background-color: #0e0e0e; border-style: none">
+        <img src="assets/x-icon.png" width="30" />
+      </button>
+      <br /><br />
+      <div id="SettingsButtonsContainer" class="SettingsButtonsContainer">
+        <button type="button" onClick="OpenInBlank(null)" class="settingsButton">
           Open in blank page
         </button>
         <br /><br />
-        <button
-          type="button"
-          id="openGamesInNewTabToggleButton"
-          onClick="ToggleOpenGamesInNewTab()"
-          class="settingsButton"
-        >
+        <button type="button" id="openGamesInNewTabToggleButton" onClick="ToggleOpenGamesInNewTab()"
+          class="settingsButton">
           <!-- Button text will be set dynamically -->
         </button>
         <br /><br />
-        <button
-          type="button"
-          id="tabCloakGamesToggleButton"
-          onClick="ToggleTabCloakGames()"
-          class="settingsButton"
-        >
+        <button type="button" id="tabCloakGamesToggleButton" onClick="ToggleTabCloakGames()"
+          class="settingsButton"></button>
         <br /><br />
-        <button
-          type="button"
-          id="showFPSToggleButton"
-          onClick="ToggleFps()"
-          class="settingsButton"
-        >
+        <button type="button" id="showFPSToggleButton" onClick="ToggleFps()" class="settingsButton"></button>
         <br /><br />
-        <button
-          type="button"
-          id="preventClosingToggleButton"
-          onClick="TogglePreventPageClosing()"
-          class="settingsButton"
-        >
+        <button type="button" id="preventClosingToggleButton" onClick="TogglePreventPageClosing()"
+          class="settingsButton">
           <!-- Button text will be set dynamically -->
         </button>
-        </div>
       </div>
     </div>
-    <script src="main.js"></script>
-  </body>
+  </div>
+  <script src="main.js"></script>
+</body>
+
 </html>
 
 <!-- Colorful Particles 

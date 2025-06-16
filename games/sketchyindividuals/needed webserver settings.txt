@@ -1,0 +1,19 @@
+NODE.jS:
+npx local-web-server \
+  --https \
+  --cors.embedder-policy "require-corp"\
+  --cors.opener-policy "same-origin" \
+  --directory <my-game-dir>
+
+NGinx:
+location some-location {
+  add_header "Cross-Origin-Opener-Policy" "same-origin";
+  add_header "Cross-Origin-Embedder-Policy" "require-corp";     
+}
+
+EXPRESS/NODE.js:
+app.use(function(req, res, next) {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+});

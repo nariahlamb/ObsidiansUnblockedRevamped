@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Plague | Terms of Service</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="logo"
+        style="display: flex; align-self: center; justify-self: center; align-items: center; justify-content: center; margin-top: 8%; animation: float 3s ease-in-out infinite; ">
+        <img src="plague hazard logo.png"></img>
+    </div>
+
+    <style>
+        @keyframes float {
+            0% {
+                transform: translateX(-2px) translateY(-5px) rotate(-100deg);
+            }
+
+            50% {
+                transform: translateX(2px) translateY(10px) rotate(100deg);
+            }
+
+            100% {
+                transform: translateX(-2px) translateY(-5px) rotate(-100deg);
+            }
+        }
+    </style>
+
+    <div style=" 
+    display: flex; 
+    width: 50%; 
+    height: fit-content; 
+    align-self: center; 
+    justify-self: center; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    background-color: black; 
+    color: white; 
+    opacity: 90%; 
+    border-style: none; 
+    border-radius: 15px; 
+    padding: 15px;
+    position: relative;
+    ">
+      <h1><strong>Plague Terms of Service</strong></h1>
+      <h3>The Guidelines You Agree To If You Add Plague To Your Discord Server Or Share A Server With Plague</h3>
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Rules:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">
+        (1). By using Plague you agree to not intentionally break, disrupt, crash, or bug Plague without the permission from me @obsidian.ig.<br><br>
+        (2). By using Plague you agree to not abuse the commands and constantly spam them as an administrator.<br><br>
+        (3). By using Plague you agree to not use any public info gathered from another user against them to Slander, Discriminate, or Segregate them.<br><br>
+        (4). By using Plague you agree to not abuse any message logs given to you by the creator. All message logs are only allowed to be used for moderation purposes.<br><br>
+        (5). By using Plague you agree to not use and or abuse any information gathered from the PlagueDatabase. All information from the database must be requested from the creator.
+        (6). By using Plague you agree to follow <a href="https://discord.com/terms">Discord's TOS</a> as well.
+      </h5> 
+
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Rules Broken:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">If you are found to have violated the Terms of Service, you and your server are subject to being blacklisted from using Plague indefinitely.</h5> 
+    </div>
+
+    <script>
+        function hexToRGB(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return { r: r / 255, g: g / 255, b: b / 255 };
+        }
+
+        let particleColors = ["#7f47b5", "#da76c3", "#f8b13b", "#5e421c", "#b86ac3", "#4c246c", "#f8b13b"];
+        let particleCount = 80000;
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        let particles = new THREE.BufferGeometry();
+        let positions = new Float32Array(particleCount * 3);
+        let colors = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() * 2 - 1) * 500;
+            positions[i * 3 + 1] = (Math.random() * 2 - 1) * 500;
+            positions[i * 3 + 2] = (Math.random() * 2 - 1) * 500;
+
+            const randomColor = particleColors[Math.floor(Math.random() * particleColors.length)];
+            const { r, g, b } = hexToRGB(randomColor);
+
+            colors[i * 3] = r;
+            colors[i * 3 + 1] = g;
+            colors[i * 3 + 2] = b;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({ size: 3, vertexColors: true });
+        const particleSystem = new THREE.Points(particles, particleMaterial);
+        scene.add(particleSystem);
+
+        camera.position.z = 500;
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            particleSystem.rotation.x += 0.001;
+            particleSystem.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+
+        animateParticles();
+
+        function toggleParticleColors() {
+            const colors = particleSystem.geometry.attributes.color.array;
+            for (let i = 0; i < particleCount; i++) {
+                const randomColor = particleColors[Math.floor(Math.random() * particleColors.length)];
+                const { r, g, b } = hexToRGB(randomColor);
+
+                colors[i * 3] = r;
+                colors[i * 3 + 1] = g;
+                colors[i * 3 + 2] = b;
+            }
+            particleSystem.geometry.attributes.color.needsUpdate = true;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Plague | Privacy Policy</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="logo"
+        style="display: flex; align-self: center; justify-self: center; align-items: center; justify-content: center; margin-top: 8%; animation: float 3s ease-in-out infinite; ">
+        <img src="plague hazard logo.png"></img>
+    </div>
+
+    <style>
+        @keyframes float {
+            0% {
+                transform: translateX(-2px) translateY(-5px) rotate(-100deg);
+            }
+
+            50% {
+                transform: translateX(2px) translateY(10px) rotate(100deg);
+            }
+
+            100% {
+                transform: translateX(-2px) translateY(-5px) rotate(-100deg);
+            }
+        }
+    </style>
+
+    <div style=" 
+    display: flex; 
+    width: 50%; 
+    height: fit-content; 
+    align-self: center; 
+    justify-self: center; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    background-color: black; 
+    color: white; 
+    opacity: 90%; 
+    border-style: none; 
+    border-radius: 15px; 
+    padding: 15px;
+    position: relative;
+    ">
+      <h1><strong>Plague Privacy Policy</strong></h1>
+      <h3>How We Collect And Manage Your Data</h3>
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Data We Collect, Store, or Access:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">If you are in a server or own a server that Plague is also in we will collect and store your discord public information. Your discord public information includes the following: Username, User Id, Name of the server you share with plague, Id of the server you share with plague, your profile picture, your profile banner, any message you send inside of the discord server you share with plague will be subject to logging/storing.</h5> 
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">This website does not collect or store any of your data.</h5> 
+      
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Messages and Content:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">We may collect and store any message you send inside of a discord server that you share with plague OR any message sent directly to plague via the direct messages. We DO NOT collect or store any messages you send in a location that is not shared with/by plague.</h5> 
+      
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Why We Collect What We Do:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">Username: <br>We collect and store your username to keep a database of all users that plague is associated with. This also helps locate your server/global level and xp and or any messages you have sent in a server that you share with plague if they have been collected and stored.</h5> 
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">User ID: <br>We collect and store your user ID to keep a database of all users that plague is associated with. This also helps locate your server/global level and xp and or any messages you have sent in a server that you share with plague if they have been collected and stored.</h5> 
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">Server Name: <br>We collect and store your server name to keep a database of all servers and users in said server that plague is associated with. This also helps locate your server/global level and xp and or any messages you have sent in the server that you share with plague if they have been collected and stored.</h5> 
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">Server ID: <br>We collect and store your server ID to keep a database of all servers and users in said server that plague is associated with. This also helps locate your server/global level and xp and or any messages you have sent in the server that you share with plague if they have been collected and stored.</h5> 
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">Messages: <br>We may collect and store your messages that you send to a discord server for the purpose of moderation. If you are in a discord that also has plague inside of it, The Owner of the said discord server is able to request your message logs for that server. This will also include ANY deleted messages that you sent inside the discord server.</h5> 
+    
+      <h4 style="justify-self: left; align-self:flex-start; padding-left: 5%; font-size: x-large; text-decoration-line: underline;">Data Deletion:</h4>
+      <h5 style="justify-self: left; align-self:flex-start; padding-left: 15%; font-size: large;">If you wish to have your data deleted and removed from the plague database please contact me on discord: "@obsidian.ig". Or to find me you can join the discord server <a href="https://discord.com/oauth2/authorize?client_id=1028521716206538823">here</a></h5> 
+    </div>
+
+    <script>
+        function hexToRGB(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return { r: r / 255, g: g / 255, b: b / 255 };
+        }
+
+        let particleColors = ["#7f47b5", "#da76c3", "#f8b13b", "#5e421c", "#b86ac3", "#4c246c", "#f8b13b"];
+        let particleCount = 80000;
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        let particles = new THREE.BufferGeometry();
+        let positions = new Float32Array(particleCount * 3);
+        let colors = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() * 2 - 1) * 500;
+            positions[i * 3 + 1] = (Math.random() * 2 - 1) * 500;
+            positions[i * 3 + 2] = (Math.random() * 2 - 1) * 500;
+
+            const randomColor = particleColors[Math.floor(Math.random() * particleColors.length)];
+            const { r, g, b } = hexToRGB(randomColor);
+
+            colors[i * 3] = r;
+            colors[i * 3 + 1] = g;
+            colors[i * 3 + 2] = b;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({ size: 3, vertexColors: true });
+        const particleSystem = new THREE.Points(particles, particleMaterial);
+        scene.add(particleSystem);
+
+        camera.position.z = 500;
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            particleSystem.rotation.x += 0.001;
+            particleSystem.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+
+        animateParticles();
+
+        function toggleParticleColors() {
+            const colors = particleSystem.geometry.attributes.color.array;
+            for (let i = 0; i < particleCount; i++) {
+                const randomColor = particleColors[Math.floor(Math.random() * particleColors.length)];
+                const { r, g, b } = hexToRGB(randomColor);
+
+                colors[i * 3] = r;
+                colors[i * 3 + 1] = g;
+                colors[i * 3 + 2] = b;
+            }
+            particleSystem.geometry.attributes.color.needsUpdate = true;
+        }
+    </script>
+</body>
+
+</html>

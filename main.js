@@ -1,4 +1,3 @@
-// Function to set a cookie
 function setCookie(name, value, days) {
   let expires = "";
   if (days) {
@@ -9,7 +8,6 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-// Function to get a cookie by name
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -21,7 +19,6 @@ function getCookie(name) {
   return null;
 }
 
-// Function to delete a cookie by name
 function eraseCookie(name) {
   document.cookie = name + "=; Max-Age=-99999999; path=/";
 }
@@ -353,10 +350,7 @@ let latestVersion;
 
 document.addEventListener("DOMContentLoaded", function () {
   initiateAudioCheck();
-  fetch(
-    "https://api.allorigins.win/raw?url=" +
-      encodeURIComponent("https://pastebin.com/raw/HvUqPkjN")
-  )
+  fetch("https://obsidianig.com/v")
     .then((response) => response.text())
     .then((data) => {
       latestVersion = data;
@@ -536,7 +530,7 @@ const gamesData = [
   {
     name: "1v1.lol",
     img: "assets/1v1lol.avif",
-    url: "games/1v1lol/1v1lol/index.html",
+    url: "games/1v1lol/1v1/1v1-lol-3.html",
     redirect: false,
   },
   {
@@ -867,6 +861,12 @@ const gamesData = [
     name: "Pokemon Yellow",
     img: "assets/pokemonyellow.png",
     url: "games/pokemonyellow/index.html",
+    redirect: false,
+  },
+  {
+    name: "Pokemon Crystal Clear",
+    img: "assets/pokemoncrystalclear.png",
+    url: "games/pokemoncrystalclear/index.html",
     redirect: false,
   },
   {
@@ -2296,6 +2296,114 @@ const gamesData = [
     url: "games/cars2/index.html",
     redirect: false,
   },
+  {
+    name: "Sonic The Hedgehog",
+    img: "assets/sonic1.webp",
+    url: "games/sonic1/index.html",
+    redirect: false,
+  },
+  {
+    name: "Sonic The Hedgehog 2",
+    img: "assets/sonic2.jpg",
+    url: "games/sonic2/index.html",
+    redirect: false,
+  },
+  {
+    name: "Sonic The Hedgehog 3",
+    img: "assets/sonic3.webp",
+    url: "games/sonic3/index.html",
+    redirect: false,
+  },
+  {
+    name: "Dreader",
+    img: "assets/dreader.png",
+    url: "games/dreader/index.html",
+    redirect: false,
+  },
+  {
+    name: "Evolution",
+    img: "assets/evolution.png",
+    url: "games/evolution/index.html",
+    redirect: false,
+  },
+  {
+    name: "Little Chef",
+    img: "assets/littlechef.png",
+    url: "games/littlechef/index.html",
+    redirect: false,
+  },
+  {
+    name: "Deepest Sword",
+    img: "assets/deepestsword.png",
+    url: "games/deepestsword/index.html",
+    redirect: false,
+  },
+  {
+    name: "Plant Daddy",
+    img: "assets/plantdaddy.webp",
+    url: "games/plantdaddy/index.html",
+    redirect: false,
+  },
+  {
+    name: "Fear Assessment",
+    img: "assets/fearassessment.webp",
+    url: "games/fearassessment/index.html",
+    redirect: false,
+  },
+  {
+    name: "Red Handed",
+    img: "assets/redhanded.jpg",
+    url: "games/redhanded/index.html",
+    redirect: false,
+  },
+  {
+    name: "Sketchy Individuals",
+    img: "assets/sketchyindividuals.png",
+    url: "games/sketchyindividuals/index.html",
+    redirect: false,
+  },
+  {
+    name: "Wildfire",
+    img: "assets/wildfire.png",
+    url: "games/wildfire/index.html",
+    redirect: false,
+  },
+  {
+    name: "Unlikely",
+    img: "assets/unlikely.webp",
+    url: "games/unlikely/index.html",
+    redirect: false,
+  },
+  {
+    name: "Bases Loaded",
+    img: "assets/basesloaded.png",
+    url: "games/basesloaded/index.html",
+    redirect: false,
+  },
+  {
+    name: "Paper Minecraft 1.21",
+    img: "assets/paperminecraft.jpg",
+    url: "games/paperminecraft/index.html",
+    redirect: false,
+  },
+  {
+    name: "Portaboy+",
+    img: "assets/portaboyplus.webp",
+    url: "games/portaboyplus/index.html",
+    redirect: false,
+  },
+  {
+    name: "Picture Perfect",
+    img: "assets/pictureperfect.png",
+    url: "games/pictureperfect/index.html",
+    redirect: false,
+  },
+  {
+    name: "Melissa",
+    img: "assets/melissa.jpg",
+    url: "games/melissa/index.html",
+    redirect: false,
+  },
 ];
 
 let rows = 0;
@@ -2336,6 +2444,10 @@ function renderGames(games) {
 }
 
 const changesData = [
+  {
+    version: "2.2.0",
+    url: "changes/2.2.0.html",
+  },
   {
     version: "2.1.9",
     url: "changes/2.1.9.html",
@@ -2454,7 +2566,7 @@ const checkIntervalChanges = setInterval(function () {
     document.getElementById("searchInput").value.toLowerCase() == "" &&
     alreadyFixedChanges == false
   ) {
-    // Initial render of all games
+    // first render of all games
     renderChanges(changesData);
     alreadyFixedChanges = true;
   }

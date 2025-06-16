@@ -1,342 +1,337 @@
 body {
-    background-color: black;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+  background-color: black;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Custom scrollbar styles for WebKit browsers */
 body::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-    height: 5px;
-  }
-  
+  width: 12px;
+  height: 5px;
+}
+
 body::-webkit-scrollbar-track {
-    background: black; /* Track color */
-    border-radius: 20px;
-  }
-  
+  background: black;
+  /* Track color */
+  border-radius: 20px;
+}
+
 body::-webkit-scrollbar-thumb {
-    background: #888; /* Handle color */
-    border-radius: 20px; /* Rounded corners for the handle */
-  }
-  
+  background: #888;
+  /* Handle color */
+  border-radius: 20px;
+}
+
 body::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Handle color on hover */
-  } 
+  background: #555;
+  /* Handle color on hover */
+}
 
 a {
-    color: inherit; /* Inherit the color from the parent element or set a default */
-    text-decoration: none; /* Remove the underline */
+  color: inherit;
+  /* Inherit the color from the parent element or set default */
+  text-decoration: none;
+  /* Remove the underline */
 }
 
 a:hover {
-    color: inherit; /* Keep the same color on hover */
+  color: inherit;
+  /* Keep the same color on hover */
 }
 
 
 #ButtonsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Wrap the buttons if needed on smaller screens */
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* Wrap the buttons if needed on smaller screens */
+  padding: 20px;
 }
 
 .homepage-buttons {
-    background-color: #0e0e0e;
-    padding: 20px;
-    text-align: center;
-    width: fit-content;
-    border-style: inset;
-    border-radius: 20px;
-    border-color: white;
+  background-color: #0e0e0e;
+  padding: 20px;
+  text-align: center;
+  width: fit-content;
+  border-style: inset;
+  border-radius: 20px;
+  border-color: white;
 }
 
 .homepage-buttons:hover {
-    padding: 1.3%;
+  padding: 1.3%;
 }
 
 .buttons-a {
-    color: white;
-    text-emphasis-color: white;
-    text-decoration-color: white;
+  color: white;
+  text-emphasis-color: white;
+  text-decoration-color: white;
 }
 
 .bottons-a:hover {
-    color: grey;
-    text-emphasis-color: grey;
-    text-decoration-color: grey;
+  color: grey;
+  text-emphasis-color: grey;
+  text-decoration-color: grey;
 }
 
 .GamesContainer {
-    display: flex;
-    flex-direction: column; /* Stack rows vertically */
-    align-items: center; /* Center the rows horizontally */
-    gap: 20px; /* Adds space between rows */
-  }
-  
-  .games-row {
-    display: flex;
-    gap: 10px; /* Adds space between buttons in a row */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  /* Stack rows vertically */
+  align-items: center;
+  /* Center the rows horizontally */
+  gap: 20px;
+  /* Adds space between rows */
+}
+
+.games-row {
+  display: flex;
+  gap: 10px;
+}
+
 
 .games-row button {
-	border-radius: 20px;
-	border-style: inset;
-	border-color: white;
-	background-color: black;
-	padding: 5px;
-	border-width: 3px;
-    transition: transform 0.3s ease;
+  border-radius: 20px;
+  border-style: inset;
+  border-color: white;
+  background-color: black;
+  padding: 5px;
+  border-width: 3px;
+  transition: transform 0.3s ease;
 }
 
 .games-row img {
-	border-radius: 20px;
-    transition: transform 0.3s ease;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
 }
 
 .games-row button:hover {
-    transform: scale(1.1); /* Scale up the image by 10% */
+  transform: scale(1.1);
 }
 
 .ChangesContainer {
   display: flex;
-  flex-direction: column; /* Stack rows vertically */
-  align-items: center; /* Center the rows horizontally */
-  gap: 20px; /* Adds space between rows */
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .changes-row {
   display: flex;
-  gap: 10px; /* Adds space between buttons in a row */
+  gap: 10px;
 }
 
 
 .changes-row button {
-border-radius: 20px;
-border-style: inset;
-border-color: white;
-background-color: black;
-padding: 5px;
-border-width: 3px;
+  border-radius: 20px;
+  border-style: inset;
+  border-color: white;
+  background-color: black;
+  padding: 5px;
+  border-width: 3px;
   transition: transform 0.3s ease;
 }
 
 .changes-row img {
-border-radius: 20px;
+  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 
 .changes-row button:hover {
-  transform: scale(1.1); /* Scale up the image by 10% */
+  transform: scale(1.1);
 }
 
 .menu-bar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Wrap the buttons if needed on smaller screens */
-    padding: 20px;
-  }
-  
-  .menu-bar {
-    border-radius: 20px;
-    border-style: inset;
-    border-color: white;
-    background-color: black;
-    padding: 5px;
-    border-width: 3px;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space between buttons and icons */
-  }
-  
-  .search-bar {
-	margin-right: auto;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.menu-bar {
+  border-radius: 20px;
+  border-style: inset;
+  border-color: white;
+  background-color: black;
+  padding: 5px;
+  border-width: 3px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  margin-right: auto;
   padding-bottom: 25px;
-  }
-  
-  .search-bar input {
-    background-color: black;
-    border-style: inset;
-    border-color: white;
-    border-radius: 20px;
-    width: auto;
-    position: absolute; /* Allows normal scrolling */
-    left: 50%;
-    transform: translateX(-50%);
+}
+
+.search-bar input {
+  background-color: black;
+  border-style: inset;
+  border-color: white;
+  border-radius: 20px;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
 
-  
-  .menu-bar-buttons {
-    display: flex;
-    gap: 5px; /* Small gap between the buttons */
-  }
-  
-  .menu-bar-button {
-    padding-left: 5px;
-  }
-  
-  .menu-bar-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adds a gap between icons */
-  }
-  
-  .menu-bar-search-button {
-    background-color: #0e0e0e;
-    padding: 20px;
-    text-align: center;
-    width: fit-content;
-    border-style: inset;
-    border-radius: 20px;
-    border-color: white;
-  }
-  
+
+.menu-bar-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.menu-bar-button {
+  padding-left: 5px;
+}
+
+.menu-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-bar-search-button {
+  background-color: #0e0e0e;
+  padding: 20px;
+  text-align: center;
+  width: fit-content;
+  border-style: inset;
+  border-radius: 20px;
+  border-color: white;
+}
+
 
 .footer-main {
-    background-color: #0e0e0e;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0 auto;              /* Ensure the footer is centered */
-    text-align: center;          /* Center the content inside the footer */
-    width: fit-content;          /* Adjust to the content width */
-    border-style: inset;
-    border-radius: 20px;
-    border-color: white;
+  background-color: #0e0e0e;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  border-style: inset;
+  border-radius: 20px;
+  border-color: white;
 }
 
 .footer-main a {
-    margin: 0 10px;              /* Add space between the icons */
+  margin: 0 10px;
 }
 
 .footer-main a img {
-    vertical-align: middle;      /* Vertically center icons */
+  vertical-align: middle;
 }
 
 .center-container {
-    display: grid;
-    place-items: center;
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    position: fixed; /* Ensure it stays in place while scrolling */
-    top: 0; /* Align to top of viewport */
-    left: 0; /* Align to left of viewport */
-    z-index: 1000; /* High z-index to ensure it is in front of other elements */
-    background: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent background */
-  }
-  
-  /* Changelog popup styling */
-  .changelog-popup {
-    background-color: #0e0e0e;
-    padding: 20px;
-    max-height: 400px;
-    width: fit-content;
-    overflow-y: auto;
-    border-style: inset;
-    border-radius: 20px;
-    border-color: white;
-    z-index: 1001; /* Higher z-index to ensure it is above the container */
-  }
-  
-  /* Custom scrollbar styles for WebKit browsers */
-  .changelog-popup::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-    height: 5px;
-  }
-  
-  .changelog-popup::-webkit-scrollbar-track {
-    background: #0e0e0e; /* Track color */
-    border-radius: 20px;
-  }
-  
-  .changelog-popup::-webkit-scrollbar-thumb {
-    background: #888; /* Handle color */
-    border-radius: 20px; /* Rounded corners for the handle */
-  }
-  
-  .changelog-popup::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Handle color on hover */
-  } 
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.changelog-popup {
+  background-color: #0e0e0e;
+  padding: 20px;
+  max-height: 400px;
+  width: fit-content;
+  overflow-y: auto;
+  border-style: inset;
+  border-radius: 20px;
+  border-color: white;
+  z-index: 1001;
+}
 
 
-     /* Settings popup styling */
-     .settings-popup {
-       background-color: #0e0e0e;
-       padding: 20px;
-       width: 45vw;
-       /* 35% of the viewport width */
-       max-height: 50vh;
-       /* 35% of the viewport height */
-       overflow-y: auto;
-       border-style: inset;
-       border-radius: 20px;
-       border-color: white;
-       z-index: 1001;
-       /* Ensure it stays above other content */
-       position: fixed;
-       /* Position it relative to the screen */
-       top: 50%;
-       /* Center vertically */
-       left: 50%;
-       /* Center horizontally */
-       transform: translate(-50%, -50%);
-       /* Adjusts to perfectly center */
-       height: 40vh;
-       
-     }
-  
-     /* Custom scrollbar styles for WebKit browsers */
-     .settings-popup::-webkit-scrollbar {
-       width: 12px;
-       /* Width of the scrollbar */
-       height: 5px;
-     }
-  
-     .settings-popup::-webkit-scrollbar-track {
-       background: #0e0e0e;
-       /* Track color */
-       border-radius: 20px;
-     }
-  
-     .settings-popup::-webkit-scrollbar-thumb {
-       background: #888;
-       /* Handle color */
-       border-radius: 20px;
-       /* Rounded corners for the handle */
-     }
-  
-     .settings-popup::-webkit-scrollbar-thumb:hover {
-       background: #555;
-       /* Handle color on hover */
-     }
+.changelog-popup::-webkit-scrollbar {
+  width: 12px;
+  height: 5px;
+}
+
+.changelog-popup::-webkit-scrollbar-track {
+  background: #0e0e0e;
+  border-radius: 20px;
+}
+
+.changelog-popup::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.changelog-popup::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 
-.ObsidiansUnblockedHeader  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 20px auto;
+
+.settings-popup {
+  background-color: #0e0e0e;
+  padding: 20px;
+  width: 45vw;
+  max-height: 50vh;
+  overflow-y: auto;
+  border-style: inset;
+  border-radius: 20px;
+  border-color: white;
+  z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40vh;
+
+}
+
+.settings-popup::-webkit-scrollbar {
+  width: 12px;
+  height: 5px;
+}
+
+.settings-popup::-webkit-scrollbar-track {
+  background: #0e0e0e;
+  border-radius: 20px;
+}
+
+.settings-popup::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.settings-popup::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.ObsidiansUnblockedHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px auto;
 }
 
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Ensures that the particles are behind your content */
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Prevents interactions with the canvas */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 .SettingsButtonsContainer {
@@ -351,7 +346,7 @@ canvas {
 }
 
 .settingsButton {
-  background-color: #0e0e0e; 
+  background-color: #0e0e0e;
   border-style: ridge;
   width: 35%;
   height: 200px;
@@ -366,13 +361,13 @@ canvas {
 }
 
 .settingsButtonEnabled {
-  background-color: rgba(18, 107, 0, 0.5); /* Green with 50% transparency */
-  color: white; /* Set text color as needed */
+  background-color: rgba(18, 107, 0, 0.5);
+  color: white;
 }
 
 .settingsButtonDisabled {
-  background-color: rgba(136, 0, 0, 0.5); /* Red with 50% transparency */
-  color: white; /* Set text color as needed */
+  background-color: rgba(136, 0, 0, 0.5);
+  color: white;
 }
 
 #floatingMessage {
@@ -380,7 +375,7 @@ canvas {
   top: 300px;
   left: 60%;
   transform: translate(-50%, -50%);
-  font-family: 'Minecraftia', sans-serif; /* Use a Minecraft-style font if available */
+  font-family: 'Minecraftia', sans-serif;
   font-size: 2rem;
   color: #FFFF00;
   text-shadow: 2px 2px #333333;
@@ -389,19 +384,23 @@ canvas {
 
 @keyframes float {
   0% {
-      transform: translate(-50%, -50%) translateY(0) rotate(-5deg);
+    transform: translate(-50%, -50%) translateY(0) rotate(-5deg);
   }
+
   25% {
-      transform: translate(-50%, -50%) translateY(-5px) rotate(5deg);
+    transform: translate(-50%, -50%) translateY(-5px) rotate(5deg);
   }
+
   50% {
-      transform: translate(-50%, -50%) translateY(-10px) rotate(-5deg);
+    transform: translate(-50%, -50%) translateY(-10px) rotate(-5deg);
   }
+
   75% {
-      transform: translate(-50%, -50%) translateY(-5px) rotate(5deg);
+    transform: translate(-50%, -50%) translateY(-5px) rotate(5deg);
   }
+
   100% {
-      transform: translate(-50%, -50%) translateY(0) rotate(-5deg);
+    transform: translate(-50%, -50%) translateY(0) rotate(-5deg);
   }
 }
 
@@ -414,5 +413,3 @@ canvas {
   padding: 5px;
   opacity: 30%;
 }
-
-
