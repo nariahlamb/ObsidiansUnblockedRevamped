@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="lib/pickr/nano.min.css">
+    <script defer src="lib/pickr/pickr.min.js"></script>
+    <script defer src="lib/jsmediatags/jsmediatags.min.js"></script>
+    <script defer src="lib/howler/howler.js"></script>
+    <script defer src="index.js"></script>
+    <title>Obsidian Web Mp3 Player</title>
+</head>
+
+<body>
+<div class="mpContainer no-select" id="mpContainer">
+    <div class="songIconContainer" id="songIconContainer">
+        <img class="songIcon" id="songIcon" src="assets/defaultSongIcon.png" alt="song icon">
+    </div>
+    <div class="controlsContainer">
+        <button class="controlsButton" id="lastSongButton" onclick="lastSong()">
+            <canvas class="controlsCanvas" id="lastSongIconCanvas"></canvas>
+            <img class="controlsIcon" id="lastSongIcon" src="assets/arrow.webp" alt="last song icon">
+        </button>
+        <button class="controlsButton" id="playButton" onclick="toggleSong()">
+            <canvas class="controlsCanvas" id="playSongIconCanvas"></canvas>
+            <img class="controlsIcon" id="playIcon" src="assets/play.webp" alt="play button icon">
+        </button>
+        <button class="controlsButton" id="nextSongButton" onclick="nextSong()">
+            <canvas class="controlsCanvas" id="nextSongIconCanvas"></canvas>
+            <img class="controlsIcon" id="nextSongIcon" src="assets/arrow.webp" alt="next song icon">
+        </button>
+    </div>
+    <div class="songNameContainer">
+        <span class="songNameText" id="songNameText">Song Name</span>
+
+    </div>
+    <div class="songPercentageContainer" id="songPercentageContainer">
+        <div class="songPercentage" id="songPercentage"></div>
+    </div>
+    <div class="songDurationContainer">
+        <p class="songDurationText" id="songDurationText">0:00/3:19</p>
+    </div>
+    <div class="fileUploadButtonContainer" id="fileUploadButtonContainer">
+        <button class="fileUploadButton" id="fileUploadButton" onclick="SelectPlaylistFolder()">
+            <canvas class="miniControlsCanvas" id="fileUploadIconCanvas"></canvas>
+            <img class="fileUploadIcon" id="fileUploadIcon" src="assets/file.png" alt="file upload icon">
+        </button>
+    </div>
+    <div class="settingsButtonContainer" id="settingsButtonContainer">
+        <button class="settingsButton" id="settingsButton" onclick="ShowMPSettings()">
+            <canvas class="miniControlsCanvas" id="settingsIconCanvas"></canvas>
+            <img class="settingsIcon" id="settingsIcon" src="assets/settings.png" alt="settings icon">
+        </button>
+    </div>
+</div>
+<div class="mpSettingsContainer" id="mpSettingsContainer">
+    <div class="mpSettingsExitButtonContainer" id="mpSettingsExitButtonContainer">
+        <button class="mpSettingsExitButton" id="mpSettingsExitButton" onclick="ExitMPSettings()">
+            <img class="mpSettingsExitIcon" id="mpSettingsExitIcon" src="assets/x.png" alt="exit icon">
+        </button>
+    </div>
+    <div class="saveConfigButtonContainer" id="saveConfigButtonContainer">
+        <button class="saveConfigButton" id="saveConfigButton" onclick="SaveMPSettings()">
+            Export
+        </button>
+    </div>
+    <div class="loadConfigButtonContainer" id="loadConfigButtonContainer">
+        <button class="loadConfigButton" id="loadConfigButton" onclick="LoadMPSettings()">
+            Import
+        </button>
+    </div>
+    <div class="resetConfigButtonContainer" id="resetConfigButtonContainer">
+        <button class="resetConfigButton" id="resetConfigButton" onclick="ResetMPSettings()">
+            Reset
+        </button>
+    </div>
+    <div class="mpSettingsBox" id="mpSettingsBox">
+        <!--Settings will dynamically load here-->
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #memeImage {
+            max-width: 80vw;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <img src="" id="memeImage" >
+        <h1 id="badText"></h1>
+    </center>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            let possibleImages = ["assets/crying.gif", "assets/holymoly.gif", "assets/evaporated.gif", "assets/mewheni.gif", "assets/eh.jpg", "assets/-_-.jpg", "assets/nuhuhuh-angry.gif", "assets/nuhuhuh.gif"];
+            let ranNum = Math.floor(Math.random() * possibleImages.length);
+            let selectedImage = possibleImages[ranNum];
+            document.getElementById("memeImage").src = selectedImage
+            let text = "test test test test";
+            switch (ranNum) {
+                case 0:
+                    text = "Aww I couldn't access this page :((";
+                    break;
+                case 1:
+                    text = "holy moly, it didn't let me access it :O";
+                    break;
+                case 2:
+                    text = "AUGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
+                    break;
+                case 3:
+                    text = "Me when I don't get what I wanted";
+                    break;
+                case 4:
+                    text = "Why dis not workin?";
+                    break;
+                case 5:
+                    text = "What do you think yur doin?";
+                    break;
+                case 6:
+                    text = "Nuh uh, I cannot allow you to access this >:(";
+                    break;
+                case 7:
+                    text = "Nuh uh, Yur not allowed here.";
+                    break;
+            }
+
+            document.getElementById("badText").textContent = text;
+            document.title = text;
+
+        });
+    </script>
+</body>
+</html>

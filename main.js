@@ -1,3 +1,4 @@
+// Function to set a cookie
 function setCookie(name, value, days) {
   let expires = "";
   if (days) {
@@ -8,6 +9,7 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
+// Function to get a cookie by name
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -19,6 +21,7 @@ function getCookie(name) {
   return null;
 }
 
+// Function to delete a cookie by name
 function eraseCookie(name) {
   document.cookie = name + "=; Max-Age=-99999999; path=/";
 }
@@ -215,7 +218,7 @@ function LoadGame(url, redirect) {
     document.getElementById("MenuBarContainer").style.display = "none";
     document.getElementById("game-display-container").style.display = "flex";
     document.getElementById("game-display-iframe").src = url;
-    document.getElementById("audioSource").volume = 0;
+    //document.getElementById("audioSource").volume = 0;
   } else if (redirect || openGamesInNewTab) {
     if (!tabCloakGames) {
       window.open(window.location.href + url, "_blank");
@@ -251,7 +254,7 @@ function LoadChange(url) {
     document.getElementById("game-display-iframe").src = "";
     document.getElementById("change-display-container").style.display = "flex";
     document.getElementById("change-display-iframe").src = url;
-    document.getElementById("audioSource").volume = 0;
+    //document.getElementById("audioSource").volume = 0;
   } else if (openGamesInNewTab) {
     if (!tabCloakGames) {
       window.open(window.location.href + url, "_blank");
@@ -268,7 +271,7 @@ function ExitGame() {
   document.getElementById("GamesContainer").style.display = "flex";
   document.getElementById("ChangesContainer").style.display = "none";
   document.getElementById("game-display-container").style.display = "none";
-  document.getElementById("audioSource").volume = 1;
+  //document.getElementById("audioSource").volume = 1;
   document.getElementById("game-display-iframe").src = "";
   document.getElementById("changes-display-iframe").src = "";
 }
@@ -300,7 +303,7 @@ function ExitChange() {
   document.getElementById("change-display-container").style.display = "none";
   document.getElementById("game-display-iframe").src = "";
   document.getElementById("changes-display-iframe").src = "";
-  document.getElementById("audioSource").volume = 1;
+  //document.getElementById("audioSource").volume = 1;
 }
 
 function FullscreenChange() {
@@ -323,6 +326,7 @@ function FullscreenChange() {
 let audioPlayed = false; // Flag to check if the audio has already played
 
 function initiateAudioCheck() {
+  /*
   console.log("audio check function :)");
   const audioElement = document.getElementById("audioSource");
   const checkInterval = setInterval(function () {
@@ -341,7 +345,7 @@ function initiateAudioCheck() {
         console.log("Error occurred: ", error);
       }
     }
-  }, 1000);
+  }, 1000);*/
 }
 
 // run a script on dom content loaded here so I can check if the newest version of the website is equal to the last visited version.
@@ -350,7 +354,9 @@ let latestVersion;
 
 document.addEventListener("DOMContentLoaded", function () {
   initiateAudioCheck();
-  fetch("https://obsidianig.com/v")
+  fetch(
+    "https://obsidianig.com/v"
+  )
     .then((response) => response.text())
     .then((data) => {
       latestVersion = data;
@@ -402,10 +408,8 @@ function ToggleGames() {
     document.getElementById("GamesContainer").style.display = "flex";
     document.getElementById("ChangesContainer").style.display = "none";
     document.getElementById("searchInput").onkeyup = searchGames;
-    document.getElementById("menu-bar-changes-button-a").onclick =
-      ToggleChanges;
-    document.getElementById("menu-bar-changes-button-text").innerHTML =
-      "Changes";
+    document.getElementById("MenuBarChanges").onclick = ToggleChanges;
+    document.getElementById("menu-bar-changes-button-text").innerHTML = "Changes";
     showChanges = false;
     showSettings = false;
     document.title = "Games | Obsidians Unblocked";
@@ -434,7 +438,7 @@ function ToggleChanges() {
     document.getElementById("GamesContainer").style.display = "none";
     document.getElementById("ChangesContainer").style.display = "flex";
     document.getElementById("searchInput").onkeyup = searchChanges;
-    document.getElementById("menu-bar-changes-button-a").onclick = ToggleGames;
+    document.getElementById("MenuBarChanges").onclick = ToggleGames;
     document.getElementById("menu-bar-changes-button-text").innerHTML = "Games";
     showGames = false;
     showSettings = false;
@@ -2445,6 +2449,14 @@ function renderGames(games) {
 
 const changesData = [
   {
+    version: "2.2.2",
+    url: "changes/2.2.2.html",
+  },
+  {
+    version: "2.2.1",
+    url: "changes/2.2.1.html",
+  },
+  {
     version: "2.2.0",
     url: "changes/2.2.0.html",
   },
@@ -2566,7 +2578,7 @@ const checkIntervalChanges = setInterval(function () {
     document.getElementById("searchInput").value.toLowerCase() == "" &&
     alreadyFixedChanges == false
   ) {
-    // first render of all games
+    // Initial render of all games
     renderChanges(changesData);
     alreadyFixedChanges = true;
   }
@@ -2972,6 +2984,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 const renderer = new THREE.WebGLRenderer();
+renderer.domElement.id = "mainThreeCanvas";
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
