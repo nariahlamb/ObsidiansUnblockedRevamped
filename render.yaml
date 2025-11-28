@@ -1,0 +1,83 @@
+#################################################################
+# render.yaml for Obsidians Unblocked - Static Site on Render   #
+# - Place at the repo root.                                     #
+# - Render will use the repo that contains this file unless     #
+#   you override the `repo` field below.                        #
+#################################################################
+
+# Enable preview environments for pull requests (optional)
+previews:
+  generation: automatic
+
+services:
+  - type: web          # static sites are a 'web' service with runtime: static
+    name: obsidians-unblocked
+    runtime: static
+
+    # Repo and branch:
+    # If you omit `repo`, Render uses the repo that contains this render.yaml.
+    # Uncomment and set repo if you want to point to a different repository.
+    # repo: https://github.com/your-username/your-repo
+    branch: main        # change to the branch you want Render to deploy from
+
+    # Build command:
+    # Common examples:
+    #  - npm run build
+    #  - yarn build
+    #  - hugo --minify
+    #  - eleventy
+    # If your site does not need a build step, set buildCommand to "" (empty string).
+    buildCommand: "npm run build"
+
+    # Path to the directory that contains the static files to publish (relative to repo root)
+    # Common values: ./build, ./dist, ./public, ./_site
+    staticPublishPath: "./build"
+
+    # By default Render will auto-deploy on commits. You can change this:
+    autoDeployTrigger: commit   # options: commit | checksPass | off
+
+    # Preview-specific settings (optional)
+    previews:
+      generation: automatic
+      # previews.plan: starter
+      # previews.numInstances: 1
+
+    # Optional build filters to limit rebuilds when only certain files change.
+    # Uncomment and adjust if you have a monorepo or want to avoid unnecessary builds.
+    # buildFilter:
+    #   paths:
+    #     - src/**
+    #   ignoredPaths:
+    #     - src/**/*.test.js
+
+    # HTTP response headers for the static site (optional)
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer-when-downgrade
+
+    # Routes: useful for SPAs (rewrite all unknown paths to index.html)
+    routes:
+      - type: rewrite
+        source: /_app/*       # common Next/other framework paths to rewrite
+        destination: /_app
+      - type: rewrite
+        source: /_next/*      # Next.js static files (if applicable)
+        destination: /_next
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+    # Custom domains can be added here (optional). Render also provides a default onrender.com URL.
+    # domains:
+    #   - example.com
+    #   - www.example.com
+
+# Optional environment groups, databases, or additional services can be added below.
+# For a simple static site, the above is sufficient.
