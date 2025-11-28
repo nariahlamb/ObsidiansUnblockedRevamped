@@ -26,7 +26,7 @@ services:
 
     # Path to the directory that contains the static files to publish (relative to repo root)
     # Common values: ./build, ./dist, ./public, ./_site
-    staticPublishPath: "./build"
+    staticPublishPath: "./"
 
     # By default Render will auto-deploy on commits. You can change this:
     autoDeployTrigger: commit   # options: commit | checksPass | off
