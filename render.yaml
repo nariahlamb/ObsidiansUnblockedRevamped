@@ -4,11 +4,6 @@
 # - Render will use the repo that contains this file unless     #
 #   you override the `repo` field below.                        #
 #################################################################
-
-# Enable preview environments for pull requests (optional)
-previews:
-  generation: automatic
-
 services:
   - type: web          # static sites are a 'web' service with runtime: static
     name: obsidians-unblocked
@@ -18,7 +13,7 @@ services:
     # If you omit `repo`, Render uses the repo that contains this render.yaml.
     # Uncomment and set repo if you want to point to a different repository.
     # repo: https://github.com/your-username/your-repo
-    branch: main        # change to the branch you want Render to deploy from
+    branch: main2        # change to the branch you want Render to deploy from
 
     # Build command:
     # Common examples:
@@ -35,12 +30,6 @@ services:
 
     # By default Render will auto-deploy on commits. You can change this:
     autoDeployTrigger: commit   # options: commit | checksPass | off
-
-    # Preview-specific settings (optional)
-    previews:
-      generation: automatic
-      # previews.plan: starter
-      # previews.numInstances: 1
 
     # Optional build filters to limit rebuilds when only certain files change.
     # Uncomment and adjust if you have a monorepo or want to avoid unnecessary builds.
