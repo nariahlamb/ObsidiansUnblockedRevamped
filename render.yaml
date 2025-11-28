@@ -22,7 +22,7 @@ services:
     #  - hugo --minify
     #  - eleventy
     # If your site does not need a build step, set buildCommand to "" (empty string).
-    buildCommand: "npm run build"
+    buildCommand: ""
 
     # Path to the directory that contains the static files to publish (relative to repo root)
     # Common values: ./build, ./dist, ./public, ./_site
