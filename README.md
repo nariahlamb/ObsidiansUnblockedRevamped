@@ -2,6 +2,12 @@
 **ObsidiansUnblockedRevamped**  
 ---
 
+## IMPORTANT INFORMATION REGARDING THE ARCHIVING OF OBSIDIANS UNBLOCKED REVAMPED
+I have decided to archive the repository of Obsidians Unblocked Revamped. I made this decision because for the forseen future, it will not be receiving any more updates. The reason for this is because I have started development on a complete recode and rewrite of Obsidians Unblocked using react. The rewrite of Obsidians Unblocked will not be released for a long while, so it could be even 2027 before it even releases, but in the mean time, I will not be dedicating any time to this project anymore. You will still be able to fork this repository and update it at your own will, so feel free to do that! Also, if you want to show your support to the development of the new Obsidians Unblocked, then you can join the discord or even apply to help develop it! Thank you all for your understanding. This project has marked a major milestone in my life. I created the original version of Obsidians Unblocked in my schools Web Design I class lmao; since then, I have come SO far in web development and I couldn't have done it without my small little awesome community!
+
+Other Notes:
+-Other projects related to Obsidians Unblocked Revamped will also be discontinued with this project. Like Obsidians Unblocked Aero edition or Obsidians Unblocked Atom.
+
 ## About  
 Obsidians Unblocked Revamped is a almost complete remake of my old website Obsidians Unblocked. I completely re-coded pretty much everything in it. There is now many new features in it, such as: tab-cloaking, search for games, dynamic game loading, all one page, cookies support, simple and clean ui, better page design, and a lot more minor changes to improve the website. I am the only developer of this website currently so it isn't the best not going to lie, but I am proud of what I have created, I spent my time working on this website and it has become a memorable part of my life. It was so popular at my school at one point until recently, that the staff actually had a meeting about it lmao.
 
